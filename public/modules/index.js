@@ -47,13 +47,7 @@ socket.on('user-left-room', handleParticipantLeave);
 document.getElementById('leave-room').addEventListener('click', leaveRoom);
 
 async function displayRooms() {
-    let result;
-
-    if (USER_INFO.id) {
-        result = await fetchRoomsForUser(USER_INFO.id);
-    } else {
-        result = await fetchRooms();
-    }
+    await fetchRooms(USER_INFO.id);
 
     renderRooms(ROOMS);
 }
